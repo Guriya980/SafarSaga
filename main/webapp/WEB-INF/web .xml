@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0"
+         metadata-complete="true">
+
+    <display-name>SafarSaga</display-name>
+
+    <!-- ENCODING FILTER -->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.safarsaga.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+	
+    <!-- ADMIN LOGIN -->
+    <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.AdminLoginServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/adminLogin</url-pattern>
+    </servlet-mapping>
+
+    <!-- ADMIN LOGOUT -->
+    <servlet>
+        <servlet-name>AdminLogoutServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.AdminLogoutServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLogoutServlet</servlet-name>
+        <url-pattern>/adminLogout</url-pattern>
+    </servlet-mapping>
+
+    <!-- ADMIN DASHBOARD -->
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.DashboardServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/admin/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <!-- TOUR MANAGEMENT -->
+    <servlet>
+        <servlet-name>TourManagementServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.TourManagementServlet</servlet-class>
+         <multipart-config>
+        <max-file-size>10485760</max-file-size>
+        <max-request-size>52428800</max-request-size>
+        <file-size-threshold>1048576</file-size-threshold>
+    </multipart-config>
+        
+       
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TourManagementServlet</servlet-name>
+        <url-pattern>/tourManagement</url-pattern>
+    </servlet-mapping>
+
+    <!-- BLOG MANAGEMENT -->
+    <servlet>
+        <servlet-name>BlogManagementServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.BlogManagementServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+   
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlogManagementServlet</servlet-name>
+        <url-pattern>/admin/blogManagement</url-pattern>
+    </servlet-mapping>
+
+    <!-- INQUIRY MANAGEMENT -->
+    <servlet>
+        <servlet-name>InquiryManagementServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.InquiryManagementServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InquiryManagementServlet</servlet-name>
+        <url-pattern>/admin/inquiryManagement</url-pattern>
+    </servlet-mapping>
+
+    <!-- CONTACT FORM -->
+    <servlet>
+        <servlet-name>ContactServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.ContactServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContactServlet</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+
+    <!-- PUBLIC TOURS PAGE -->
+    <servlet>
+        <servlet-name>ToursServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.ToursServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ToursServlet</servlet-name>
+        <url-pattern>/tours</url-pattern>
+    </servlet-mapping>
+
+    <!-- PUBLIC BLOG PAGE -->
+    <servlet>
+        <servlet-name>BlogServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.BlogServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlogServlet</servlet-name>
+        <url-pattern>/blogs</url-pattern>
+    </servlet-mapping>
+
+    <!-- IMAGE GALLERY -->
+    <servlet>
+        <servlet-name>ImageGalleryServlet</servlet-name>
+        <servlet-class>com.safarsaga.servlet.ImageGalleryServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+       
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ImageGalleryServlet</servlet-name>
+        <url-pattern>/imageGallery</url-pattern>
+    </servlet-mapping>
+
+    <!-- WELCOME FILE -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- SESSION TIMEOUT: 60 minutes -->
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+
+    <!-- ERROR PAGES -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/index.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/index.jsp</location>
+    </error-page>
+
+</web-app>
